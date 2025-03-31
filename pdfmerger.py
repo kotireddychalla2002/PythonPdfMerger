@@ -2,10 +2,10 @@ import sys
 import PyPDF2
 
 def merge(file_list, output_file):
-    merged_pdf = PyPDF2.PdfFileMerger()
+    merged_pdf = PyPDF2.PdfMerger()
     for file in file_list:
         with open(file, 'rb') as f:
-            pdf_reader = PyPDF2.PdfFileReader(f)
+            pdf_reader = PyPDF2.PdfReader(f)
             merged_pdf.append(pdf_reader)
     merged_pdf.write(output_file)
 
